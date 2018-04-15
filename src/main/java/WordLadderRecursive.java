@@ -10,10 +10,14 @@ public class WordLadderRecursive {
         if (beginWord.equals(endWord)) {
             return 0;
         } else if (!getOneLetterDistanceWords(beginWord, wordList).isEmpty()) {
-            String nextBeginWord = getOneLetterDistanceWords(beginWord, wordList).get(0);
-            List<String> nextWordList = new ArrayList<>(wordList);
-            nextWordList.remove(nextBeginWord);
-            return ladderLength(nextBeginWord, endWord, nextWordList) + 1;
+            List<String> oneLetterDistanceWords = getOneLetterDistanceWords(beginWord, wordList);
+            for (String nextBeginWord : oneLetterDistanceWords) {
+//                String nextBeginWord = getOneLetterDistanceWords(beginWord, wordList).get(0);
+                List<String> nextWordList = new ArrayList<>(wordList);
+                nextWordList.remove(nextBeginWord);
+                return ladderLength(nextBeginWord, endWord, nextWordList) + 1;
+            }
+            return 0;
         } else {
             return -1;
         }

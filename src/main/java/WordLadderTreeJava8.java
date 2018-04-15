@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * Created by Salty on 4/12/2018.
  */
-public class WordLadderTree {
+public class WordLadderTreeJava8 {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Optional<Node<String>> root = getNodeWithOneDistanceChildrenRecursive(Optional.empty(), beginWord, wordList, endWord);
